@@ -5,14 +5,14 @@ import { LeftBar } from '../components/LeftBar';
 import { Main } from '../components/Main';
 import { RightBar } from '../components/RightBar';
 
-export const Home = () => {
+export const Profile = () => {
   return (
     <>
         <Header /> 
           <SContainer>
               <LeftBar />
               <Main />
-              <RightBar />
+              <RightBar/>
           </SContainer>
     </>
   );
@@ -22,3 +22,4 @@ const SContainer = styled.div`
     display: flex;
     width: 100%;
 `
+

@@ -18,7 +18,7 @@ export const UserCard = () => {
                       <p>23follower</p>
                   </Sinfo>
                 <SButtonBox>
-                      <Button variant="outlined" margin='normal'>編集する</Button>
+                      <Button variant="outlined">編集する</Button>
                 </SButtonBox>
               </SContent>
           </SUserCardBox>
