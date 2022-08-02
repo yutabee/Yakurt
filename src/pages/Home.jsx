@@ -1,19 +1,22 @@
 import React from 'react'
 import styled from 'styled-components';
+import { ArticleBox } from '../components/ArticleBox';
+import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { LeftBar } from '../components/LeftBar';
-import { Main } from '../components/Main';
+
 import { RightBar } from '../components/RightBar';
 
 export const Home = () => {
   return (
     <>
-        <Header /> 
-          <SContainer>
-              <LeftBar />
-              <Main />
-              <RightBar />
-          </SContainer>
+      <Header /> 
+        <SContainer>
+           <LeftBar />
+            <ArticleBox />
+           <RightBar />
+        </SContainer>
+      <Footer/>
     </>
   );
 };

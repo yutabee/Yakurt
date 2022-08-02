@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { UserProfile } from './UserProfile';
 import { UserStatus } from './UserStatus';
 
-export const Main = () => {
+export const ProfileCenterBar = () => {
   return (
       <>
           <SBox>

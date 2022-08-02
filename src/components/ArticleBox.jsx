@@ -5,17 +5,20 @@ import { ArticleCard } from './ArticleCard';
 export const ArticleBox = () => {
   return (
     <>
-      <SArticleBox>
+      <SBox>
         <ArticleCard />
-      </SArticleBox>
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+      </SBox>
     </>
   );
 };
 
-const SArticleBox = styled.div`
+const SBox = styled.div`
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     flex: 50%;
-    margin-top:   15px;
-    height: 100vh;
+    margin-right: 15px;
 `

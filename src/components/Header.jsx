@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = () => {
@@ -6,10 +7,12 @@ export const Header = () => {
     <>
       <SBox>
         <SContainer>
-            <SLeftBox >
-              <SLogo>Yakurt</SLogo>        
-            </SLeftBox>
-                <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
+          <SLeftBox >
+             <Link to='/' style={{ textDecoration: 'none' }}>
+              <SLogo>Yakurt</SLogo>
+              </Link>
+          </SLeftBox>
+                <SImg src='images/bulldog.jpg' alt='profileImg' />
           </SContainer>
        </SBox>
     </>
@@ -40,6 +43,4 @@ const SImg = styled.img`
 
 const SLogo = styled.h1`
     color: white;
-    opacity: 0.8;
-    height: calc(100vh - 50px);
 `

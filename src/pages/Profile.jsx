@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { Header } from '../components/Header';
 import { LeftBar } from '../components/LeftBar';
-import { Main } from '../components/Main';
+import { ProfileCenterBar } from '../components/ProfileCenterBar';
+
 import { RightBar } from '../components/RightBar';
 
 export const Profile = () => {
@@ -11,7 +12,7 @@ export const Profile = () => {
         <Header /> 
           <SContainer>
               <LeftBar />
-              <Main />
+              <ProfileCenterBar/>
               <RightBar/>
           </SContainer>
     </>
