@@ -4,19 +4,20 @@ import styled from 'styled-components';
 export const Header = () => {
   return (
     <>
-      <SHeader>
+      <SBox>
         <SContainer>
-          <SLightBox >
+            <SLeftBox >
               <SLogo>Yakurt</SLogo>        
-            </SLightBox>
+            </SLeftBox>
+                <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
           </SContainer>
-       </SHeader>
+       </SBox>
     </>
   );
 };
 
 
-const SHeader = styled.div`
+const SBox = styled.div`
     background-color: rgb(78, 148, 171);
     height: 80px;
 `
@@ -26,8 +27,15 @@ const SContainer = styled.div`
     margin: 0px 20px;
 `
 
-const SLightBox = styled.div`
+const SLeftBox = styled.div`
     display: flex;
+`
+
+const SImg = styled.img`
+    height: 50px;
+    width: 50px;
+    border-radius: 9999px;
+    margin-top: 15px;
 `
 
 const SLogo = styled.h1`

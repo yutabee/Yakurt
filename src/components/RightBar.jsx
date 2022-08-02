@@ -37,7 +37,7 @@ const SRank = styled.span`
 const SContainer = styled.div`
   background-color: white;
   width: 95%;
-  height: 100%;
+  padding: 10px 0 20px 0;
   margin-top: 15px;
   margin-right: 15px;
 `
