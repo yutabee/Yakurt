@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Search from '../atoms/search/Search';
 
 export const Header = () => {
   return (
@@ -10,9 +11,13 @@ export const Header = () => {
           <SLeftBox >
              <Link to='/' style={{ textDecoration: 'none' }}>
               <SLogo>Yakurt</SLogo>
-              </Link>
+            </Link>
+             <Search/>
           </SLeftBox>
-                <SImg src='images/bulldog.jpg' alt='profileImg' />
+          <SRightBox>
+            <SButton>投稿する</SButton>
+            <SImg src='images/bulldog.jpg' alt='profileImg' />
+          </SRightBox>
           </SContainer>
        </SBox>
     </>
@@ -32,15 +37,35 @@ const SContainer = styled.div`
 
 const SLeftBox = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const SRightBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const SImg = styled.img`
     height: 50px;
     width: 50px;
     border-radius: 9999px;
-    margin-top: 15px;
 `
+
+const SButton = styled.button`
+  height: 40px;
+  width: 100px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 10px;
+  margin-right: 10px;
+  border: none;
+`
+
+
 
 const SLogo = styled.h1`
     color: white;
+    margin-right: 40px;
 `

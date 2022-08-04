@@ -4,8 +4,7 @@ import styled from 'styled-components';
 export const Article = () => {
   return (
     <>
-          <STitle>ジャヌビアとトラゼンタの違い３時間語ったみた</STitle>
-          
+        <STitle>ジャヌビアとトラゼンタの違い３時間語ったみた</STitle>      
     </>
   );
 };
