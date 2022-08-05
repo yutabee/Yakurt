@@ -12,7 +12,7 @@ export const Profile = () => {
         <Header /> 
           <SContainer>
               <LeftBar />
-              <ProfileCenterBar/>
+              <ProfileCenterBar />
               <RightBar/>
           </SContainer>
       <Footer />

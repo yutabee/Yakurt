@@ -1,19 +1,46 @@
 import React from 'react';
-import './Search.css';
 import SearchIcon from '@mui/icons-material/Search';
+import styled from 'styled-components';
 
 function Search() {
     return (
-        <div className="search">
-            <div className='search__bar'>
+        <SSearchBox>
+            <SSearchBar>
                 <SearchIcon />
-                <input
-                    className="search__bar__input"
+                <SInput
                     placeholder="Search"
                 />
-            </div>
-        </div>
+            </SSearchBar>
+        </SSearchBox>
       )
  }
 
- export default Search;
+export default Search;
+ 
+const SSearchBox = styled.div`    
+   display: flex;
+    justify-content: center;
+    height: 40px;
+`
+
+const SSearchBar = styled.div`
+    display: flex;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    background-color: #f0f2f5;
+`
+
+const SInput = styled.input`
+    border: none !important;
+    background-color: #f0f2f5;
+    width: 300px;
+    margin-left: 5px;
+    &:focus{
+        outline-width: 0;
+    }
+    &::placeholder{
+    text-align: left;
+    font-size: 15px;
+    }
+`

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { SButton } from '../atoms/button/BaseButton';
+import { LogOutButton } from '../atoms/button/LogOutButton';
 import Search from '../atoms/search/Search';
 
 export const Header = () => {
@@ -16,6 +18,7 @@ export const Header = () => {
           </SLeftBox>
           <SRightBox>
             <SButton>投稿する</SButton>
+            <LogOutButton></LogOutButton>
             <SImg src='images/bulldog.jpg' alt='profileImg' />
           </SRightBox>
           </SContainer>
@@ -50,20 +53,8 @@ const SRightBox = styled.div`
 const SImg = styled.img`
     height: 50px;
     width: 50px;
-    border-radius: 9999px;
+    border-radius: 999px;
 `
-
-const SButton = styled.button`
-  height: 40px;
-  width: 100px;
-  background-color: whitesmoke;
-  color: black;
-  border-radius: 10px;
-  margin-right: 10px;
-  border: none;
-`
-
-
 
 const SLogo = styled.h1`
     color: white;

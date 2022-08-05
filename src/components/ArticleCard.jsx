@@ -5,7 +5,7 @@ export const ArticleCard = () => {
   return (
     <>
       <SCard>
-         <SImgBox>
+        <SImgBox>
               <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
               <p>@Yutabeee</p>
         </SImgBox>

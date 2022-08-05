@@ -20,8 +20,10 @@ export const UserCard = () => {
                       <p>23follow</p>
                       <p>23follower</p>
                   </Sinfo>
-                <SButtonBox>
-                      <Button variant="outlined">編集する</Button>
+                  <SButtonBox>
+                      <Link to='user/edit' style={{ textDecoration: 'none' }}>
+                          <Button variant="outlined" >編集する</Button>
+                      </Link>
                 </SButtonBox>
               </SContent>
           </SUserCardBox>
