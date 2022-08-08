@@ -1,21 +1,13 @@
-
-import { onAuthStateChanged } from 'firebase/auth';
-import { useEffect, useState } from 'react';
+import { useContext} from 'react';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import {uiConfig, auth} from '../../firebase';
+import { UserContext } from '../../providers/UserProvider';
 import StyledFirebaseAuth from './StyledFirebaseAuth';
 
 const Auth = () => {
-
-const [user, setUser] = useState("");
-
-  useEffect(() => {
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-// eslint-disable-next-line
-}, []);
+  
+  const { user } = useContext(UserContext);
 
   return (
     <>

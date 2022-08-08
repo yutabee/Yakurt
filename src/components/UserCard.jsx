@@ -1,9 +1,14 @@
 import { Button } from '@mui/material';
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { UserContext } from '../providers/UserProvider';
 
 export const UserCard = () => {
+
+    const { user } = useContext(UserContext);
+    console.log(user);
+
   return (
     <>
           <SUserCardBox>
@@ -11,7 +16,8 @@ export const UserCard = () => {
                   <Link to='/profile'>
                       <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
                    </Link>
-                  <p>@Yutabeee</p>
+                  <p>{user.displayName}</p>
+                  <p>{user.email}</p>
               </SImgBox>
               <SContent>
                   <p>23contributes</p>

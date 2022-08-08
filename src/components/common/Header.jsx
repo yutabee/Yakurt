@@ -19,7 +19,9 @@ export const Header = () => {
           <SRightBox>
             <SButton>投稿する</SButton>
             <LogOutButton></LogOutButton>
-            <SImg src='images/bulldog.jpg' alt='profileImg' />
+            <Link to='profile'>
+              <SImg src='images/bulldog.jpg' alt='profileImg' />
+            </Link>
           </SRightBox>
           </SContainer>
        </SBox>
