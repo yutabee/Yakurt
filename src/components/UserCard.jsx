@@ -4,17 +4,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from '../providers/UserProvider';
 
-export const UserCard = () => {
-
+export const UserCard = (props) => {
     const { user } = useContext(UserContext);
-    console.log(user);
+    const { userEditSet } = props;
 
   return (
     <>
           <SUserCardBox>
               <SImgBox>
                   <Link to='/profile'>
-                      <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
+                    <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
                    </Link>
                   <p>{user.displayName}</p>
                   <p>{user.email}</p>
@@ -27,9 +26,7 @@ export const UserCard = () => {
                       <p>23follower</p>
                   </Sinfo>
                   <SButtonBox>
-                      <Link to='user/edit' style={{ textDecoration: 'none' }}>
-                          <Button variant="outlined" >編集する</Button>
-                      </Link>
+                          <Button variant="outlined" onClick={userEditSet} >編集する</Button>
                 </SButtonBox>
               </SContent>
           </SUserCardBox>

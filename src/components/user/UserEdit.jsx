@@ -1,9 +1,11 @@
 import { Button } from '@mui/material';
-import { doc, getDoc, serverTimestamp, setDoc, updateDoc, } from 'firebase/firestore';
-import React, { useContext,  useEffect,  useState } from 'react'
+import { doc, serverTimestamp, setDoc, updateDoc, } from 'firebase/firestore';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { db } from '../../firebase';
+import { db, storage } from '../../firebase';
 import { UserContext } from '../../providers/UserProvider';
+import { ref, uploadBytes } from "firebase/storage";
+import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
 
 
 export const UserEdit = () => {
@@ -13,29 +15,9 @@ export const UserEdit = () => {
     const [userImage, setUserImage] = useState();
     const [userName, setUserName] = useState();
     const [userProfile, setUserProfile] = useState();
-    const [userInfo, setUserInfo] = useState();
 
-    //認証済みユーザのプロフィールの取得
-    useEffect(() => {
-        const getUserProfile = async () => {
-            try {
-                const userDocRef = doc(db, 'users', user.uid);
-                const data = await getDoc(userDocRef).then((documentSnapshot) => {
-                    return documentSnapshot.data()
-                })
-                // console.log(data);
-                setUserInfo({
-                    name: data.name,
-                    image: data.image,
-                    profile: data.profile,
-                });
-            } catch (err) {
-                console.log(err);
-            } 
-        }
-        getUserProfile();
-        // eslint-disable-next-line
-    }, []);
+    //認証ユーザーのプロファイル情報を取得
+    const userInfo = useGetUserProfile();
 
     //imagefileの取得
     const handleImage = (e) => {
@@ -58,14 +40,22 @@ export const UserEdit = () => {
 
     //フォーム送信のイベントハンドラ
     const handleSubmit = async (e) => {
+         e.preventDefault();
         try {
-            e.preventDefault();
+            //画像のアップロード
+            if (userImage) {
+            const imageRef = ref(storage, userImage.name);
+            uploadBytes(imageRef, userImage).then(snapshot => {
+            console.log("Uploaded a file!", snapshot)
+                })
+            }
+        //ユーザープロフィールのアップロード
         if (userInfo) {
             const userDocumentRef = doc(db, 'users', user.uid);
             await updateDoc(userDocumentRef, {    
             name: userName,
             profile: userProfile,
-            image: userImage.name, 
+            image: userImage.name,
             timpstamp: serverTimestamp(),
              });
         } else {
@@ -106,25 +96,24 @@ export const UserEdit = () => {
                   <SInputBox>
                     <input
                         id="nameInput"
-                        name='userName'
-                        defaultValue={userInfo.name}      
+                        name='userName'   
+                        // placeholder={userInfo.name} 
                         onChange={handleUserName}
                         />
                   </SInputBox>
                   <SInputBox>
                   <input
                     id="profileInput"
-                    name='userProfile'
-                    defaultValue={userInfo.profile}          
+                    name='userProfile' 
+                    // placeholder={userInfo.profile}            
                     onChange={handleUserProfile}
-                    
                   />
                   </SInputBox>
                 <SInputBox>
                 <Button
                     type="submit"
                     fullWidth
-                    variant="contained"
+                    variant="contained"          
                     sx={{ mt: 3, mb: 2 }}
                 >
                     保存

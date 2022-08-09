@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components';
 import { UserCard } from './UserCard';
 
-export const LeftBar = () => {
+export const LeftBar = (props) => {
+  const {userEditSet} = props;
   return (
     <>
       <LeftBarBox>
         <SContainer>
-          <UserCard></UserCard>
+          <UserCard userEditSet={userEditSet} ></UserCard>
         </SContainer>
       </LeftBarBox>
     </>

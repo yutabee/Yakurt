@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const UserProfile = () => {
+export const UserProfile = ({userInfo}) => {
+
   return (
     <>
         <SBox>
               <STitle>Profile</STitle>
-              <p>田丸 裕大</p>
+              <p>{userInfo.name}</p>
               <SSubTitle>経歴</SSubTitle>
-              <p>広島出身です。福岡の大規模急性期病院で勤務後プログラマーに転身。</p>
+              <p>{userInfo.profile}</p>
               <SSubTitle>趣味</SSubTitle>
-              <p>キックボクシング、アコースティックギター、カレー</p>
         </SBox>
     </>
   );
