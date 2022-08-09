@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ArticleBox } from '../components/ArticleBox';
+import { Posts } from '../components/post/Posts';
 import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
 import { LeftBar } from '../components/LeftBar';
@@ -19,7 +19,7 @@ export const Home = () => {
          <Header /> 
         <SContainer>
            <LeftBar />
-           <ArticleBox />
+           <Posts />
            <RightBar />
         </SContainer>
       <Footer/>

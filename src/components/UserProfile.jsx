@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useGetUserProfile } from '../hooks/firebase/useGetUserProfile';
 
-export const UserProfile = ({userInfo}) => {
+export const UserProfile = () => {
+   const userInfo = useGetUserProfile();
 
   return (
     <>

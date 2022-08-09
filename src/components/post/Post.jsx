@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const ArticleCard = () => {
+export const Post = (props) => {
+  const { title, content } = props;
   return (
     <>
       <SCard>
@@ -10,12 +11,8 @@ export const ArticleCard = () => {
               <p>@Yutabeee</p>
         </SImgBox>
         <SContent>
-          <STitle>ジャヌビアとトラゼンタの違い３時間語ったみた</STitle>
-          <p>DPP-IV阻害剤のトラゼンタが発売されましたね。
-            トラゼンタは今までのDPP-IV阻害剤と違い胆汁排泄されるため、
-            腎機能の悪い患者でも利用することができます。
-            新薬トラゼンタの魅力について語っていきましょう。
-          </p>
+          <STitle>{title}</STitle>
+          <p>{content}</p>
         </SContent>
       </SCard>
     </>
