@@ -11,21 +11,18 @@ export const useGetUserProfile = () => {
     //認証済みユーザのプロフィールの取得
     useEffect(() => {
         const getUserProfile = async () => {
-            let data;
             try {
                 const userDocRef = doc(db, 'users', user.uid);
-                data = await getDoc(userDocRef).then((documentSnapshot) => {
-                return documentSnapshot.data();
-                });   
+                await getDoc(userDocRef).then((documentSnapshot) => {
+                    return documentSnapshot.data();
+                }).then((res) => setUserInfo({
+                    name: res.name,
+                    image: res.image,
+                    profile: res.profile,
+                }));
             } catch (error) {
                 console.log(error);
-            } finally {
-                 setUserInfo({
-                    name: data.name,
-                    image: data.image,
-                    profile: data.profile,
-                });
-            }
+            } 
         }
         getUserProfile();
      // eslint-disable-next-line

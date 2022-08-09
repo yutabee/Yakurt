@@ -2,10 +2,12 @@ import { Button } from '@mui/material';
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useGetUserImage } from '../hooks/firebase/useGetUserImage';
 import { UserContext } from '../providers/UserProvider';
 
 export const UserCard = (props) => {
     const { user } = useContext(UserContext);
+    const image = useGetUserImage();
     const { userEditSet } = props;
 
   return (
@@ -13,7 +15,7 @@ export const UserCard = (props) => {
           <SUserCardBox>
               <SImgBox>
                   <Link to='/profile'>
-                    <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
+                    <SImg src={`${image}`} alt='profileImg'></SImg>
                    </Link>
                   <p>{user.displayName}</p>
                   <p>{user.email}</p>
@@ -26,7 +28,7 @@ export const UserCard = (props) => {
                       <p>23follower</p>
                   </Sinfo>
                   <SButtonBox>
-                          <Button variant="outlined" onClick={userEditSet} >編集する</Button>
+                      <Button variant="outlined" onClick={userEditSet} >編集する</Button>
                 </SButtonBox>
               </SContent>
           </SUserCardBox>

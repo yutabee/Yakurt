@@ -1,26 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SButton } from '../atoms/button/BaseButton';
+import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
 import { LogOutButton } from '../atoms/button/LogOutButton';
+import { PostPageButton } from '../atoms/button/PostPageButton';
 import Search from '../atoms/search/Search';
 
+
 export const Header = () => {
+ const image = useGetUserImage();
+
   return (
     <>
       <SBox>
         <SContainer>
           <SLeftBox >
-             <Link to='/' style={{ textDecoration: 'none' }}>
-              <SLogo>Yakurt</SLogo>
+            <Link to='/' style={{ textDecoration: 'none' }}>
+            <SLogo>Yakurt</SLogo>
             </Link>
              <Search/>
           </SLeftBox>
           <SRightBox>
-            <SButton>投稿する</SButton>
-            <LogOutButton></LogOutButton>
+            <PostPageButton/>
+            <LogOutButton />
             <Link to='profile'>
-              <SImg src='images/bulldog.jpg' alt='profileImg' />
+              <SImg src={`${image}`} alt='profileImg' />
             </Link>
           </SRightBox>
           </SContainer>

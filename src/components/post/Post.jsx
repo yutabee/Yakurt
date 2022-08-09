@@ -3,16 +3,17 @@ import styled from 'styled-components';
 
 export const Post = (props) => {
   const { title, content } = props;
+  
   return (
     <>
       <SCard>
-        <SImgBox>
-              <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
-              <p>@Yutabeee</p>
-        </SImgBox>
-        <SContent>
+          <SImgBox>
+            <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
+            <p>@Yutabeee</p>
+          </SImgBox>
+          <SContent>
           <STitle>{title}</STitle>
-          <p>{content}</p>
+          <div>{content.slice(0,140)}</div>
         </SContent>
       </SCard>
     </>

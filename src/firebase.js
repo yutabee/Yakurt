@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider,
   EmailAuthProvider,
 } from 'firebase/auth';
-import { getStorage, ref } from 'firebase/storage';
+import { getStorage } from 'firebase/storage';
 
 // firebaseの設定
 const firebaseConfig = {
@@ -32,6 +32,4 @@ export const uiConfig = {
 };
 
 export const db = getFirestore(app);
-
 export const storage = getStorage(app);
-export const storageRef = ref(storage);

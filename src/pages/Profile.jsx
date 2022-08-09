@@ -7,7 +7,7 @@ import { ProfileCenterBar } from '../components/ProfileCenterBar';
 import { RightBar } from '../components/RightBar';
 
 export const Profile = () => {
-  const [profileEditIsOpen, setProfileEditIsOpen] = useState(false);
+  const [profileEditIsOpen, setProfileEditIsOpen] = useState(true);
   const userEditSet = () => {
     setProfileEditIsOpen(!profileEditIsOpen);
   }
