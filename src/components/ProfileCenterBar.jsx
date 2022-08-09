@@ -6,15 +6,15 @@ import { UserProfile } from './UserProfile';
 import { UserStatus } from './UserStatus';
 
 export const ProfileCenterBar = (props) => {
-  const { profileEditIsOpen } = props;
+  const { profileEditIsOpen , setProfileEditIsOpen } = props;
   const userInfo = useGetUserProfile();
-  console.log(userInfo);
+  // console.log(userInfo);
 
   return (
       <>
           <SBox>
-              <UserStatus />
-              {profileEditIsOpen?( <UserProfile userInfo={userInfo} />):(<UserEdit/>)}
+            <UserStatus/>
+             {profileEditIsOpen? (<UserProfile userInfo={userInfo} />):(<UserEdit setProfileEditIsOpen={setProfileEditIsOpen} />)}
           </SBox>
     </>
   );

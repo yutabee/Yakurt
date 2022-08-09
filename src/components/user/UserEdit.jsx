@@ -8,7 +8,9 @@ import { ref, uploadBytes } from "firebase/storage";
 import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
 
 
-export const UserEdit = () => {
+export const UserEdit = (props) => {
+    const { setUserProfileIsOpen } = props;
+
     //firebase provider
     const { user } = useContext(UserContext);
     //user form の取得
@@ -110,14 +112,15 @@ export const UserEdit = () => {
                   />
                   </SInputBox>
                 <SInputBox>
-                <Button
+                <button
                     type="submit"
                     fullWidth
                     variant="contained"          
                     sx={{ mt: 3, mb: 2 }}
+                    onClick={setUserProfileIsOpen}
                 >
                     保存
-                </Button>
+                </button>
                 </SInputBox>    
               </form>
             </SContainer>

@@ -17,7 +17,7 @@ export const Profile = () => {
       <Header /> 
           <SContainer>
             <LeftBar userEditSet={userEditSet} />
-            <ProfileCenterBar profileEditIsOpen={profileEditIsOpen}  />
+            <ProfileCenterBar profileEditIsOpen={profileEditIsOpen} setProfileEditIsOpen={setProfileEditIsOpen} />
             <RightBar/>
           </SContainer>
       <Footer />
