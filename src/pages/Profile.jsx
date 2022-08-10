@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import styled from 'styled-components';
 import { Footer } from '../components/common/Footer';
 import { Header } from '../components/common/Header';
@@ -7,17 +7,13 @@ import { ProfileCenterBar } from '../components/ProfileCenterBar';
 import { RightBar } from '../components/RightBar';
 
 export const Profile = () => {
-  const [profileEditIsOpen, setProfileEditIsOpen] = useState(true);
-  const userEditSet = () => {
-    setProfileEditIsOpen(!profileEditIsOpen);
-  }
-
+ 
   return (
     <>
       <Header /> 
           <SContainer>
-            <LeftBar userEditSet={userEditSet} />
-            <ProfileCenterBar profileEditIsOpen={profileEditIsOpen} setProfileEditIsOpen={setProfileEditIsOpen} />
+            <LeftBar />
+            <ProfileCenterBar  />
             <RightBar/>
           </SContainer>
       <Footer />

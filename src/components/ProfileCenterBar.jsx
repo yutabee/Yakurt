@@ -1,20 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
-import { UserEdit } from './user/UserEdit';
 import { UserProfile } from './UserProfile';
 import { UserStatus } from './UserStatus';
 
-export const ProfileCenterBar = (props) => {
-  const { profileEditIsOpen , setProfileEditIsOpen } = props;
+export const ProfileCenterBar = () => {
 
   return (   
           <SBox>
-          <UserStatus/>
-          {
-            profileEditIsOpen ?
-              (<UserProfile setProfileEditIsOpen={setProfileEditIsOpen} />)
-            : (<UserEdit setProfileEditIsOpen={setProfileEditIsOpen} />)
-          }
+            <UserStatus/>
+            <UserProfile  />
           </SBox>
   );
 };

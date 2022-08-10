@@ -5,10 +5,9 @@ import styled from 'styled-components';
 import { useGetUserImage } from '../hooks/firebase/useGetUserImage';
 import { UserContext } from '../providers/UserProvider';
 
-export const UserCard = (props) => {
+export const UserCard = () => {
     const { user } = useContext(UserContext);
     const image = useGetUserImage();
-    const { userEditSet } = props;
 
   return (
     <>
@@ -28,7 +27,9 @@ export const UserCard = (props) => {
                       <p>23follower</p>
                   </Sinfo>
                   <SButtonBox>
-                      <Button variant="outlined" onClick={userEditSet} >編集する</Button>
+                      <Link to='profile/edit' style={{ textDecoration:'none' }}>
+                          <Button variant="outlined" >編集する</Button>
+                      </Link>
                 </SButtonBox>
               </SContent>
           </SUserCardBox>

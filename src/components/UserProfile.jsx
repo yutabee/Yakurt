@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useGetUserProfile } from '../hooks/firebase/useGetUserProfile';
 
 export const UserProfile = () => {
-   const userInfo = useGetUserProfile();
+  const userInfo = useGetUserProfile();
 
   return (
     <>
@@ -13,6 +13,7 @@ export const UserProfile = () => {
               <SSubTitle>経歴</SSubTitle>
               <p>{userInfo.profile}</p>
               <SSubTitle>趣味</SSubTitle>
+              <p>{userInfo.profile}</p>
         </SBox>
     </>
   );
