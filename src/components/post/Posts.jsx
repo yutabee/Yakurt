@@ -2,20 +2,18 @@ import { collection,  getDocs,} from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { db } from '../../firebase';
-import useGetAllUsers from '../../hooks/firebase/useGetAllUsers';
 import { Post } from './Post';
 
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const allusers = useGetAllUsers();
-  console.log(allusers);
 
     useEffect(() => {
         const getPosts = async () => {
         const postCollection = collection(db, "posts");
-        await getDocs(postCollection).then((querySnapshot) => {
+          await getDocs(postCollection).then((querySnapshot) => {
             setPosts(querySnapshot.docs.map((doc) => doc.data()));
-        })}
+          }).catch((error) =>console.log(error))
+        }
         getPosts();      
      // eslint-disable-next-line
     }, []);  

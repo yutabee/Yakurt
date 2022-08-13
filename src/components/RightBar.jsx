@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const RightBar = memo(() => {
   return (
-      <>
           <SBox>
               <SContainer>
                   <STitle>Top</STitle>
@@ -17,7 +16,6 @@ export const RightBar = memo(() => {
                   <p><SRank>8</SRank>ジャヌビア食べてみた</p>
               </SContainer>
           </SBox>
-    </>
   );
 })
 

@@ -5,7 +5,7 @@ import { auth } from "../firebase";
 export const UserContext = createContext({});
 
 export const UserProvider = (props) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
     // console.log(user);
 
     useEffect(() => {
@@ -15,14 +15,14 @@ export const UserProvider = (props) => {
         uid: currentUser.uid,
         });
     });
-        
     // eslint-disable-next-line
     }, []);
+
 
     const { children } = props;
 
     return (
-        <UserContext.Provider value={{user}}>
+        <UserContext.Provider value={{user ,setUser}}>
             {children}
         </UserContext.Provider>
     )

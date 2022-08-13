@@ -6,13 +6,11 @@ export const LeftBar = memo((props) => {
 
   const { userEditSet } = props;
   return (
-    <>
       <LeftBarBox>
         <SContainer>
           <UserCard userEditSet={userEditSet} ></UserCard>
         </SContainer>
       </LeftBarBox>
-    </>
   );
 });
 

@@ -4,11 +4,9 @@ import styled from 'styled-components';
 export const Footer = memo(() => {
 
   return (
-    <>
           <SBox>
             <p>&copy; 2022  Yutabeee</p>
           </SBox>    
-    </>
   );
 })
 

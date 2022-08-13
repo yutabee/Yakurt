@@ -8,7 +8,7 @@ import { UserEdit } from '../components/user/UserEdit';
 
 export const ProfileEdit = memo(() => {
   return (
-      <>
+  <>
     <Header /> 
       <Box sx={{display: 'flex',width:'100%',}}>
           <LeftBar /> 
@@ -16,6 +16,6 @@ export const ProfileEdit = memo(() => {
           <RightBar/>
       </Box>
     <Footer />
-    </>
+  </>
   );
 })

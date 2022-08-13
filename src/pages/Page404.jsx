@@ -4,12 +4,10 @@ import styled from 'styled-components';
 
 export const Page404 = memo(() => {
   return (
-    <>
           <SBox>
             <h2>ページが見つかりません。</h2>
             <Link to='/'>トップに戻る</Link>
           </SBox>
-    </>
   );
 })
 

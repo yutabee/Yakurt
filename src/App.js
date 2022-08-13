@@ -2,6 +2,7 @@ import './App.css';
 import { UserProvider } from './providers/UserProvider';
 import Router from './Router';
 
+
 function App() {
   return (
       <UserProvider>
@@ -9,5 +10,6 @@ function App() {
       </UserProvider>
   );
 }
+
 
 export default App;

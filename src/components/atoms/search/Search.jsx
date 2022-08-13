@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 
-function Search() {
+export const Search = memo(()=> {
     return (
         <SSearchBox>
             <SSearchBar>
@@ -13,9 +13,7 @@ function Search() {
             </SSearchBar>
         </SSearchBox>
       )
- }
-
-export default Search;
+ })
  
 const SSearchBox = styled.div`    
    display: flex;

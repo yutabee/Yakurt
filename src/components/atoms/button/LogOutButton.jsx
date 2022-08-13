@@ -1,15 +1,19 @@
 import { Button } from '@mui/material';
-import React, { memo, useCallback } from 'react'
+import React, { memo, useCallback, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../../../firebase';
+import { UserContext } from '../../../providers/UserProvider';
 
 export const LogOutButton = memo(() => {
+    const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
+
   const handleLogout = useCallback(() => {
+    setUser(null);
     auth.signOut();
     navigate('/auth');
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   }, []);
   
 

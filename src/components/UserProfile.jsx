@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import { useGetUserProfile } from '../hooks/firebase/useGetUserProfile';
 
 export const UserProfile = memo(() => {
-  const userInfo = useGetUserProfile();
-
+  const { userInfo } = useGetUserProfile();
+  
   return (
-    <>
         <SBox>
               <STitle>Profile</STitle>
               <p>{userInfo.name}</p>
@@ -15,7 +14,6 @@ export const UserProfile = memo(() => {
               <SSubTitle>趣味</SSubTitle>
               <p>{userInfo.profile}</p>
         </SBox>
-    </>
   );
 })
 
