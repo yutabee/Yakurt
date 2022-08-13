@@ -1,12 +1,12 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PostCreate } from "./components/post/PostCreate";
-import Auth from "./pages/auth/Auth";
-import { Home } from "./pages/Home";
-import { Page404 } from "./pages/Page404";
-import { Profile } from "./pages/Profile";
-import { ProfileEdit } from "./pages/ProfileEdit";
-import { TextEditor } from "./pages/TextEditor";
+import Auth from "./components/pages/auth/Auth";
+import { Home } from "./components/pages/Home";
+import { Page404 } from "./components/pages/Page404";
+import { Profile } from "./components/pages/Profile";
+import { ProfileEdit } from "./components/pages/ProfileEdit";
+import { TextEditor } from "./components/pages/TextEditor";
 
 const Router = () => {
   return (
@@ -16,9 +16,9 @@ const Router = () => {
           <Route path='profile' element={<Profile />} />
           <Route path='auth' element={<Auth />} />
           <Route path='/editor' element={<TextEditor/>} />
-          <Route path='*' element={<Page404 />} />
           <Route path='post/create' element={<PostCreate />} />
-          <Route path="profile/edit" element={<ProfileEdit/>} />
+          <Route path="profile/edit" element={<ProfileEdit />} />
+          <Route path='*' element={<Page404 />} />
         </Routes>
     </BrowserRouter>
   );

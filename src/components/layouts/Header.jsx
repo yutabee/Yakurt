@@ -1,4 +1,5 @@
-import React, { memo } from 'react'
+import { Avatar } from '@mui/material';
+import React, { memo, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
@@ -7,8 +8,12 @@ import { PostPageButton } from '../atoms/button/PostPageButton';
 
 
 export const Header = memo(() => {
+  const { imageURL, getImageURL } = useGetUserImage();
   
-  const image = useGetUserImage();
+  useEffect(() => {
+    getImageURL();
+  // eslint-disable-next-line
+  },[])
   
 
   return (
@@ -24,7 +29,11 @@ export const Header = memo(() => {
             <PostPageButton/>
             <LogOutButton />
             <Link to='profile'>
-              <SImg src={`${image}`} alt='profileImg' />
+              {imageURL ? (
+               <SImg src={imageURL} alt='profileImg' />
+              ) : (
+                <Avatar/>
+              )}
             </Link>
           </SRightBox>
           </SContainer>

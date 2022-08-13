@@ -1,10 +1,15 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import styled from 'styled-components';
-import { useGetUserProfile } from '../hooks/firebase/useGetUserProfile';
+import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
 
 export const UserProfile = memo(() => {
-  const { userInfo } = useGetUserProfile();
+  const { userInfo, getUserProfile } = useGetUserProfile();
   
+  useEffect(() => {
+    getUserProfile();
+  // eslint-disable-next-line
+  }, []);
+
   return (
         <SBox>
               <STitle>Profile</STitle>

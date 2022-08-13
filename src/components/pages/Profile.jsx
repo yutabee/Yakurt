@@ -1,10 +1,10 @@
 import React, { memo }  from 'react'
 import styled from 'styled-components';
-import { Footer } from '../components/common/Footer';
-import { Header } from '../components/common/Header';
-import { LeftBar } from '../components/LeftBar';
-import { ProfileCenterBar } from '../components/ProfileCenterBar';
-import { RightBar } from '../components/RightBar';
+import { Footer } from '../layouts/Footer';
+import { Header } from '../layouts/Header';
+import { LeftBar } from '../organisms/LeftBar';
+import { ProfileCenterBar } from '../organisms/ProfileCenterBar';
+import { RightBar } from '../organisms/RightBar';
 
 export const Profile = memo(() => {
  

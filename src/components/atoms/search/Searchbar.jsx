@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 
-export const Search = memo(()=> {
+export const Searchbar = memo(()=> {
     return (
         <SSearchBox>
             <SSearchBar>

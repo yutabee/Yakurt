@@ -1,8 +1,8 @@
 import { useContext} from 'react';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import {uiConfig, auth} from '../../firebase';
-import { UserContext } from '../../providers/UserProvider';
+import {uiConfig, auth} from '../../../firebase';
+import { UserContext } from '../../../providers/UserProvider';
 import StyledFirebaseAuth from './StyledFirebaseAuth';
 
 const Auth = () => {

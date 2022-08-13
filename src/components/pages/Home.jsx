@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Posts } from '../components/post/Posts';
-import { Footer } from '../components/common/Footer';
-import { Header } from '../components/common/Header';
-import { LeftBar } from '../components/LeftBar';
-import { RightBar } from '../components/RightBar';
-import { UserContext } from '../providers/UserProvider';
+import { Posts } from '../post/Posts';
+import { Footer } from '../layouts/Footer';
+import { Header } from '../layouts/Header';
+import { LeftBar } from '../organisms/LeftBar';
+import { RightBar } from '../organisms/RightBar';
+import { UserContext } from '../../providers/UserProvider';
 
 export const Home = () => {
   const { user } = useContext(UserContext);
@@ -15,7 +15,7 @@ export const Home = () => {
     <>
     {
       user?(
-        <>
+      <>
         <Header /> 
           <SContainer>
               <LeftBar />
@@ -23,7 +23,7 @@ export const Home = () => {
               <RightBar />
           </SContainer>
         <Footer/>
-        </>
+      </>
       ) : (
           <Navigate to='auth' />
       )}

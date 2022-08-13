@@ -1,19 +1,28 @@
-import { Button } from '@mui/material';
-import React, { memo, useContext } from 'react'
+import { Avatar, Button } from '@mui/material';
+import React, { memo, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUserImage } from '../hooks/firebase/useGetUserImage';
-import { UserContext } from '../providers/UserProvider';
+import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
+import { UserContext } from '../../providers/UserProvider';
 
 export const UserCard = memo(() => {
     const { user } = useContext(UserContext);
-    const image = useGetUserImage('');
+    const { imageURL, getImageURL } = useGetUserImage();
+    
+    useEffect(() => {
+        getImageURL();  
+    // eslint-disable-next-line
+    },[])
 
   return (
           <SUserCardBox>
               <SImgBox>
-                  <Link to='/profile'>
-                    <SImg src={image} alt='profileImg'></SImg>
+              <Link to='/profile'>
+                  {imageURL ? (
+                  <SImg src={imageURL} alt='profileImg'></SImg>
+                  ) : (
+                  <Avatar/>
+                  )} 
                    </Link>
                   <p>{user.name}</p>
                   <p>{user.email}</p>

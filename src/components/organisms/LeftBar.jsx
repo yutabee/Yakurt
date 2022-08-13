@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import styled from 'styled-components';
-import { UserCard } from './UserCard';
+import { UserCard } from '../molecules/UserCard';
 
 export const LeftBar = memo((props) => {
 

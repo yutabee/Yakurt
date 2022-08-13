@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import React, { memo } from 'react'
-import { Footer } from '../components/common/Footer';
-import { Header } from '../components/common/Header';
-import { LeftBar } from '../components/LeftBar';
-import { RightBar } from '../components/RightBar';
-import { UserEdit } from '../components/user/UserEdit';
+import { Footer } from '../layouts/Footer';
+import { Header } from '../layouts/Header';
+import { LeftBar } from '../organisms/LeftBar';
+import { RightBar } from '../organisms/RightBar';
+import { UserEdit } from '../molecules/UserEdit';
 
 export const ProfileEdit = memo(() => {
   return (

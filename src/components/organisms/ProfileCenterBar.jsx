@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import styled from 'styled-components';
-import { UserProfile } from './UserProfile';
-import { UserStatus } from './UserStatus';
+import { UserProfile } from '../molecules/UserProfile';
+import { UserStatus } from '../molecules/UserStatus';
 
 export const ProfileCenterBar = memo(() => {
 

@@ -1,5 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { db } from "../../firebase";
 import { UserContext } from "../../providers/UserProvider";
 
@@ -8,10 +8,11 @@ export const useGetUserProfile = () => {
     const { user } = useContext(UserContext);
     const [userInfo, setUserInfo] = useState({});
 
+    console.log(userInfo);
+
     //認証済みユーザのプロフィールの取得
-    useEffect(() => {
-        const getUserProfile = async () => {
-                const userDocRef = doc(db, 'users', user.uid);
+        const getUserProfile = useCallback( async () => {
+            const userDocRef = doc(db, 'users', user.uid);
             await getDoc(userDocRef).then((documentSnapshot) => {
                 return documentSnapshot.data();
             }).then((res) => setUserInfo({
@@ -21,10 +22,10 @@ export const useGetUserProfile = () => {
                 uuid: user.uuid,
             }))
             .catch((error) => console.log(error));
-        }
-        getUserProfile();
-     // eslint-disable-next-line
-    }, []);    
-
-    return { userInfo }
+        },[user])
+   
+    return { userInfo , getUserProfile }    
 }
+       
+
+    

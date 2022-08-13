@@ -1,24 +1,15 @@
-import { collection,  getDocs,} from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import { db } from '../../firebase';
+import { useGetAllPost } from '../../hooks/firebase/useGetAllPosts';
 import { Post } from './Post';
 
 export const Posts = () => {
-  const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        const getPosts = async () => {
-        const postCollection = collection(db, "posts");
-          await getDocs(postCollection).then((querySnapshot) => {
-            setPosts(querySnapshot.docs.map((doc) => doc.data()));
-          }).catch((error) =>console.log(error))
-        }
-        getPosts();      
-     // eslint-disable-next-line
-    }, []);  
+  const { posts, getAllPosts } = useGetAllPost();
   
-  // console.log(posts);
+  useEffect(() => {
+    getAllPosts();
+  // eslint-disable-next-line 
+  },[])
 
   return (
       <SBox>

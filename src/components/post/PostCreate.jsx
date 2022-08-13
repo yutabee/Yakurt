@@ -3,7 +3,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import React, { useContext, useState } from 'react'
 import { db } from '../../firebase';
 import { UserContext } from '../../providers/UserProvider';
-import { Header } from '../common/Header';
+import { Header } from '../layouts/Header';
 import { uuidv4 } from '@firebase/util';
 import { useNavigate } from 'react-router-dom';
 
