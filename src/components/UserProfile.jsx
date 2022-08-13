@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components';
 import { useGetUserProfile } from '../hooks/firebase/useGetUserProfile';
 
-export const UserProfile = () => {
+export const UserProfile = memo(() => {
   const userInfo = useGetUserProfile();
 
   return (
@@ -17,7 +17,7 @@ export const UserProfile = () => {
         </SBox>
     </>
   );
-};
+})
 
 const SBox = styled.div`
     background-color: white;

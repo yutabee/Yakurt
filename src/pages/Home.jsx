@@ -16,13 +16,13 @@ export const Home = () => {
     {
       user?(
         <>
-         <Header /> 
-        <SContainer>
-           <LeftBar />
-           <Posts />
-           <RightBar />
-        </SContainer>
-      <Footer/>
+        <Header /> 
+          <SContainer>
+              <LeftBar />
+              <Posts />
+              <RightBar />
+          </SContainer>
+        <Footer/>
         </>
       ) : (
           <Navigate to='auth' />

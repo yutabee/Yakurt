@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components';
 
-export const RightBar = () => {
+export const RightBar = memo(() => {
   return (
       <>
           <SBox>
@@ -19,7 +19,7 @@ export const RightBar = () => {
           </SBox>
     </>
   );
-};
+})
 
 const SBox = styled.div`
     flex: 20%;

@@ -65,7 +65,6 @@ export const UserEdit = () => {
                 });      
                 }
             }
-        
         //ユーザープロフィールのアップロード
         if (userInfo) {
             const docRef = doc(db, 'users', user.uid);

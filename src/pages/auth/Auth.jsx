@@ -6,7 +6,6 @@ import { UserContext } from '../../providers/UserProvider';
 import StyledFirebaseAuth from './StyledFirebaseAuth';
 
 const Auth = () => {
-  
   const { user } = useContext(UserContext);
 
   return (

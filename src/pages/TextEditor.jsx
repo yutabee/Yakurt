@@ -4,8 +4,6 @@ import 'draft-js/dist/Draft.css';
 
 export const TextEditor = () => {
     return (
-    
         <EditorApp />
-     
   );
 };

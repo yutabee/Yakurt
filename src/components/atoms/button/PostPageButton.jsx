@@ -1,12 +1,13 @@
 import { Button } from '@mui/material';
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 export const PostPageButton = () => {
   const navigate = useNavigate();
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     navigate('/post/create');
-  }
+  // eslint-disable-next-line
+  }, []);
 
   return (
      <Button variant='outlined'

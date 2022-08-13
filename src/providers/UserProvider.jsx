@@ -5,20 +5,24 @@ import { auth } from "../firebase";
 export const UserContext = createContext({});
 
 export const UserProvider = (props) => {
-
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState();
+    // console.log(user);
 
     useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
+        setUser({
+        email: currentUser.email,
+        uid: currentUser.uid,
+        });
     });
+        
     // eslint-disable-next-line
     }, []);
 
     const { children } = props;
 
     return (
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider value={{user}}>
             {children}
         </UserContext.Provider>
     )

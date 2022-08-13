@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components';
 import { UserCard } from './UserCard';
 
-export const LeftBar = (props) => {
-  const {userEditSet} = props;
+export const LeftBar = memo((props) => {
+
+  const { userEditSet } = props;
   return (
     <>
       <LeftBarBox>
@@ -13,7 +14,7 @@ export const LeftBar = (props) => {
       </LeftBarBox>
     </>
   );
-};
+});
 
 const LeftBarBox = styled.div`
     flex: 25%;

@@ -24,7 +24,8 @@ export const PostCreate = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-          if (e.target.value) {
+
+          if (title && content) {
             try {
                 const DocRef = collection(db, 'posts');
                 await addDoc(DocRef, {
@@ -41,9 +42,10 @@ export const PostCreate = () => {
                 console.log(error);
             }
         } else {
-            setErrMessage(!errMessage);
-            setTimeout(setErrMessage(!errMessage), 3000);
+            setErrMessage(true);
+            setTimeout(()=>setErrMessage(false), 3000);
         }   
+
     }
 
   return (
@@ -55,7 +57,8 @@ export const PostCreate = () => {
             <TextField
             id='postTitle'
             defaultValue={null}
-            multiline 
+            multiline
+            name='title'          
             rows={1}
             sx={{ width: 600 }}
             onChange={handleTitle}      
@@ -66,7 +69,8 @@ export const PostCreate = () => {
             <TextField
             id="postContent"
             multiline      
-            rows={20}    
+            rows={20}  
+            name='content'          
             defaultValue={null}
             sx={{ width: 600 }}  
             onChange={handleContent}      

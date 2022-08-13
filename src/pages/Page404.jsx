@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Page404 = () => {
+export const Page404 = memo(() => {
   return (
     <>
           <SBox>
@@ -11,7 +11,7 @@ export const Page404 = () => {
           </SBox>
     </>
   );
-};
+})
 
 const SBox = styled.div`
   height: 100vh;

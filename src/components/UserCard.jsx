@@ -1,22 +1,21 @@
 import { Button } from '@mui/material';
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetUserImage } from '../hooks/firebase/useGetUserImage';
 import { UserContext } from '../providers/UserProvider';
 
-export const UserCard = () => {
+export const UserCard = memo(() => {
     const { user } = useContext(UserContext);
-    const image = useGetUserImage();
+    const image = useGetUserImage('');
 
   return (
-    <>
           <SUserCardBox>
               <SImgBox>
                   <Link to='/profile'>
-                    <SImg src={`${image}`} alt='profileImg'></SImg>
+                    <SImg src={image} alt='profileImg'></SImg>
                    </Link>
-                  <p>{user.displayName}</p>
+                  <p>{user.name}</p>
                   <p>{user.email}</p>
               </SImgBox>
               <SContent>
@@ -33,9 +32,8 @@ export const UserCard = () => {
                 </SButtonBox>
               </SContent>
           </SUserCardBox>
-    </>
   );
-};
+})
 
 const SUserCardBox = styled.div`
     background-color: white;

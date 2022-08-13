@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components';
 
-export const Post = (props) => {
+export const Post = memo((props) => {
   const { title, content } = props;
-  
+
   return (
-    <>
       <SCard>
           <SImgBox>
             <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
@@ -16,9 +15,8 @@ export const Post = (props) => {
           <div>{content.slice(0,140)}</div>
         </SContent>
       </SCard>
-    </>
   );
-};
+})
 
 const SCard = styled.div`
   display: flex;

@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
 import { LogOutButton } from '../atoms/button/LogOutButton';
 import { PostPageButton } from '../atoms/button/PostPageButton';
-import Search from '../atoms/search/Search';
 
 
-export const Header = () => {
- const image = useGetUserImage();
+export const Header = memo(() => {
+  
+  const image = useGetUserImage();
+  
 
   return (
     <>
@@ -18,7 +19,6 @@ export const Header = () => {
             <Link to='/' style={{ textDecoration: 'none' }}>
             <SLogo>Yakurt</SLogo>
             </Link>
-             <Search/>
           </SLeftBox>
           <SRightBox>
             <PostPageButton/>
@@ -31,8 +31,7 @@ export const Header = () => {
        </SBox>
     </>
   );
-};
-
+})
 
 const SBox = styled.div`
     background-color: rgb(78, 148, 171);

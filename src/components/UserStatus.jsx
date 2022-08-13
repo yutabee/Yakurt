@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components';
 
-export const UserStatus = () => {
+export const UserStatus = memo(() => {
   return (
     <>
         <SBox>
@@ -31,7 +31,7 @@ export const UserStatus = () => {
         </SBox>
     </>
   );
-};
+})
 
 const SBox = styled.div`
     flex: 50%;
