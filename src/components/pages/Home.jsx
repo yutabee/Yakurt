@@ -6,15 +6,16 @@ import { Footer } from '../layouts/Footer';
 import { Header } from '../layouts/Header';
 import { LeftBar } from '../organisms/LeftBar';
 import { RightBar } from '../organisms/RightBar';
-import { UserContext } from '../../providers/UserProvider';
+import { AuthContext } from '../../providers/UserProvider';
+
 
 export const Home = () => {
-  const { user } = useContext(UserContext);
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <>
     {
-      user?(
+      currentUser?(
       <>
         <Header /> 
           <SContainer>

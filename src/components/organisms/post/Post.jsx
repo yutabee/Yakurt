@@ -1,13 +1,17 @@
+import { Avatar } from '@mui/material';
 import React, { memo } from 'react'
 import styled from 'styled-components';
 
 export const Post = memo((props) => {
-  const { title, content } = props;
+  const { title, content, imageURL } = props;
 
   return (
       <SCard>
-          <SImgBox>
-            <SImg src='images/bulldog.jpg' alt='profileImg'></SImg>
+      <SImgBox>
+        {imageURL ?
+          (<SImg src={imageURL} alt='profileImg'></SImg>) :
+          (<Avatar/>)
+        }   
             <p>@Yutabeee</p>
           </SImgBox>
           <SContent>

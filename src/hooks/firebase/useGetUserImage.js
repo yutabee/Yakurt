@@ -4,18 +4,18 @@ import { storage } from "../../firebase";
 import { useGetUserProfile } from "./useGetUserProfile";
 // import { useGetUserProfile } from "./useGetUserProfile";
 
+
 export const useGetUserImage = () => {
   const { userInfo, getUserProfile } = useGetUserProfile();
   const [imageURL, setImage] = useState();
-
   // console.log(userInfo);
   
-    useEffect(() => {
-      getUserProfile();
+  useEffect(() => {
+    getUserProfile();
     // eslint-disable-next-line
-    }, [])
+  }, []);
   
-    const getImageURL = useCallback( async () => {
+    const getImageURL = useCallback(async () => {
       const gsReference = ref(storage, userInfo.image);
       await getDownloadURL(gsReference)
         .then((url) => setImage(url))

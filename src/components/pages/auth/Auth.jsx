@@ -2,15 +2,16 @@ import { useContext} from 'react';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import {uiConfig, auth} from '../../../firebase';
-import { UserContext } from '../../../providers/UserProvider';
+import { AuthContext } from '../../../providers/UserProvider';
+
 import StyledFirebaseAuth from './StyledFirebaseAuth';
 
 const Auth = () => {
-  const { user } = useContext(UserContext);
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <>
-      {user ? (
+      {currentUser ? (
       <Navigate to={'/'} />
       ): (
         <SBox>

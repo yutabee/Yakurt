@@ -12,5 +12,6 @@ export const useGetAllPost = () => {
         }).catch((error) => console.log(error))
     }, []);
 
+    
     return { posts , getAllPosts }
 }

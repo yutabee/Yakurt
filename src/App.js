@@ -1,15 +1,15 @@
 import './App.css';
-import { UserProvider } from './providers/UserProvider';
+import { AuthProvider } from './providers/UserProvider';
 import Router from './Router';
 
 
 function App() {
   return (
-      <UserProvider>
+      <AuthProvider>
         <Router />
-      </UserProvider>
+      </AuthProvider>
   );
 }
 
-
 export default App;
+ 

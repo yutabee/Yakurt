@@ -3,10 +3,10 @@ import { doc, serverTimestamp, setDoc, updateDoc, } from 'firebase/firestore';
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db, storage } from '../../firebase';
-import { UserContext } from '../../providers/UserProvider';
 import { ref, uploadBytes } from "firebase/storage";
 import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
 import { uuidv4 } from '@firebase/util';
+import { AuthContext } from '../../providers/UserProvider';
 // import { uuidv4 } from '@firebase/util';
 
 const initialState = {
@@ -15,9 +15,9 @@ const initialState = {
 
 export const UserEdit = () => {
     //firebase provider
-    const { user } = useContext(UserContext);
+    const { currentUser } = useContext(AuthContext);
 
-    //user form の取得
+    //currentUser form の取得
     const [userImage, setUserImage] = useState(initialState);
     const [userName, setUserName] = useState('');
     const [userProfile, setUserProfile] = useState('');
@@ -57,28 +57,28 @@ export const UserEdit = () => {
               });
               //cloud storageにファイル名を保存
               if (userInfo) {     
-              const docRef = doc(db, 'users', user.uid);
+              const docRef = doc(db, 'users', currentUser.uid);
               await updateDoc(docRef, {image: fullPath});
               } else {
-              const docRef = doc(db, 'users', user.uid);
+              const docRef = doc(db, 'users', currentUser.uid);
               await setDoc(docRef, {
-              uid:user.uid,
+              uid:currentUser.uid,
               image: fullPath,
               });      
               }
           }
         //ユーザープロフィールのアップロード
         if (userInfo) {
-            const docRef = doc(db, 'users', user.uid);
+            const docRef = doc(db, 'users', currentUser.uid);
             await updateDoc(docRef, {   
             name: userName,
             profile: userProfile,
             updated_at: serverTimestamp(),
              });
         } else {
-            const docRef =  doc(db, 'users', user.uid);
+            const docRef =  doc(db, 'users', currentUser.uid);
             await setDoc(docRef, {
-            uid:user.uid,
+            uid:currentUser.uid,
             name: userName,
             profile: userProfile,
             created_at: serverTimestamp(),

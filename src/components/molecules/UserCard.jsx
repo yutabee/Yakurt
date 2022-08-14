@@ -3,12 +3,15 @@ import React, { memo, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
-import { UserContext } from '../../providers/UserProvider';
+import { AuthContext } from '../../providers/UserProvider';
+// import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
+
 
 export const UserCard = memo(() => {
-    const { user } = useContext(UserContext);
+    const { currentUser } = useContext(AuthContext);
     const { imageURL, getImageURL } = useGetUserImage();
 
+    // console.log(imageURL);
     
     useEffect(() => { 
         getImageURL();
@@ -25,8 +28,8 @@ export const UserCard = memo(() => {
                   <Avatar/>
                   )} 
                    </Link>
-                  <p>{user.name}</p>
-                  <p>{user.email}</p>
+                  <p>{currentUser.name}</p>
+                  <p>{currentUser.email}</p>
               </SImgBox>
               <SContent>
                   <p>23contributes</p>

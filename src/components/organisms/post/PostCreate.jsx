@@ -2,10 +2,11 @@ import { Box, Button, TextField, Typography, } from '@mui/material'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import React, { useContext, useState } from 'react'
 import { db } from '../../../firebase';
-import { UserContext } from '../../../providers/UserProvider';
-import { Header } from '../../layouts/Header';
 import { uuidv4 } from '@firebase/util';
 import { useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../../../providers/UserProvider';
+import { Header } from '../../layouts/Header';
 
 export const PostCreate = () => {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const PostCreate = () => {
     const [content, setContent] = useState('');
     const [errMessage, setErrMessage] = useState(false);
 
-    const { user } = useContext(UserContext);
+    const { currentUser } = useContext(AuthContext);
 
     const handleTitle = (e) => {
         setTitle(e.target.value);
@@ -32,7 +33,7 @@ export const PostCreate = () => {
                     id:uuidv4(),
                     title: title,
                     content: content,
-                    uid:user.uid,
+                    uid:currentUser.uid,
                     created_at: serverTimestamp(),
                 })
                 setContent('');
