@@ -1,6 +1,6 @@
 import { Box, Button,TextField } from '@mui/material';
 import { doc, serverTimestamp, setDoc, updateDoc, } from 'firebase/firestore';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db, storage } from '../../firebase';
 import { UserContext } from '../../providers/UserProvider';
@@ -23,13 +23,11 @@ export const UserEdit = () => {
     const [userProfile, setUserProfile] = useState('');
 
     //認証ユーザーのプロファイル情報を取得
-    const userInfo = useGetUserProfile();
-    
+    const { userInfo , getUserProfile } = useGetUserProfile();
     //imagefileの取得
     const handleImage = (e) => {
         setUserImage(e.target.files[0]);
     }
-
    //userNameの取得
     const handleUserName = (e) => {
          setUserName(e.target.value); 
@@ -39,32 +37,36 @@ export const UserEdit = () => {
        setUserProfile(e.target.value);
     }
 
+  useEffect(() => {
+    getUserProfile();
+  // eslint-disable-next-line
+  }, []);
+  
     //フォーム送信のイベントハンドラ
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            //画像のアップロード
-            if (userImage) {
-                const ext = userImage.name.split('.').pop();   //拡張子を取得 
-                const hashName = uuidv4();    //ユニークなファイル名を生成
-                const fullPath = `gs://yakurt-80e15.appspot.com/${hashName} .${ext}`;  //imageのpathを作成  
-                const imageRef = ref(storage, fullPath);     //storagerefを作成
-                
-                await uploadBytes(imageRef, userImage).then(snapshot => {  //firestorageにアップロード
-                    console.log("Uploaded a file!", snapshot)
-                });
-                //cloud storageにファイル名を保存
-                if (userInfo) {     
-                const docRef = doc(db, 'users', user.uid);
-                await updateDoc(docRef, {image: fullPath});
-                } else {
-                const docRef = doc(db, 'users', user.uid);
-                await setDoc(docRef, {
-                uid:user.uid,
-                image: fullPath,
-                });      
-                }
-            }
+          //画像のアップロード
+          if (userImage) {
+              const ext = userImage.name.split('.').pop();   //拡張子を取得 
+              const hashName = uuidv4();    //ユニークなファイル名を生成
+              const fullPath = `gs://yakurt-80e15.appspot.com/${hashName} .${ext}`;  //imageのpathを作成  
+              const imageRef = ref(storage, fullPath);     //storagerefを作成
+              
+              await uploadBytes(imageRef, userImage).then(snapshot => {  //firestorageにアップロード
+                  console.log("Uploaded a file!", snapshot)
+              });
+              //cloud storageにファイル名を保存
+              if (userInfo) {     
+              const docRef = doc(db, 'users', user.uid);
+              await updateDoc(docRef, {image: fullPath});
+              } else {
+              const docRef = doc(db, 'users', user.uid);
+              await setDoc(docRef, {
+              uid:user.uid,
+              image: fullPath,
+              });      
+              }
+          }
         //ユーザープロフィールのアップロード
         if (userInfo) {
             const docRef = doc(db, 'users', user.uid);
@@ -82,9 +84,7 @@ export const UserEdit = () => {
             created_at: serverTimestamp(),
             });  
         }    
-        } catch (error) {
-            console.log(error);
-        }
+        
     };
     
 

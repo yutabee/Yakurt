@@ -8,9 +8,10 @@ import { UserContext } from '../../providers/UserProvider';
 export const UserCard = memo(() => {
     const { user } = useContext(UserContext);
     const { imageURL, getImageURL } = useGetUserImage();
+
     
-    useEffect(() => {
-        getImageURL();  
+    useEffect(() => { 
+        getImageURL();
     // eslint-disable-next-line
     },[])
 

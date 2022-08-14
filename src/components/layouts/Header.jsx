@@ -28,7 +28,7 @@ export const Header = memo(() => {
           <SRightBox>
             <PostPageButton/>
             <LogOutButton />
-            <Link to='profile'>
+            <Link to='/profile'>
               {imageURL ? (
                <SImg src={imageURL} alt='profileImg' />
               ) : (

@@ -4,9 +4,8 @@ import { db } from "../../firebase";
 
 
 export default function useGetAllUsers() {
-    const [ allUsers , setAllUsers ] = useState([]);
-
-
+    const [allUsers, setAllUsers] = useState([]);
+    
     const getAllUsers = async () => {
     const usersCollection = collection(db, "users");
             await getDocs(usersCollection)

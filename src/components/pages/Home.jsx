@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Posts } from '../post/Posts';
+import { Posts } from '../organisms/post/Posts';
 import { Footer } from '../layouts/Footer';
 import { Header } from '../layouts/Header';
 import { LeftBar } from '../organisms/LeftBar';
