@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material';
 import React, { memo, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
+import { useGetUserImage } from '../../hooks/useGetUserImage';
 import { LogOutButton } from '../atoms/button/LogOutButton';
 import { PostPageButton } from '../atoms/button/PostPageButton';
 

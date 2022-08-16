@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useState } from "react";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
 export const useGetAllPost = () => {
     const [posts, setPosts] = useState([]);
@@ -12,6 +12,5 @@ export const useGetAllPost = () => {
         }).catch((error) => console.log(error))
     }, []);
 
-    
     return { posts , getAllPosts }
 }

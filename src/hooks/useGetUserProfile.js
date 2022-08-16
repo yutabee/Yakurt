@@ -1,7 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useCallback, useContext, useState } from "react";
-import { db } from "../../firebase";
-import { AuthContext } from "../../providers/UserProvider";
+import { db } from "../firebase";
+import { AuthContext } from "../providers/UserProvider";
 
 
 export const useGetUserProfile = () => {

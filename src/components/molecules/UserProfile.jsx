@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react'
 import styled from 'styled-components';
-import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
+import { useGetUserProfile } from '../../hooks/useGetUserProfile';
 
 export const UserProfile = memo(() => {
   const { userInfo, getUserProfile } = useGetUserProfile();

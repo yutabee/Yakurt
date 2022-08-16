@@ -1,7 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import {  useCallback, useState } from "react";
-import { db } from "../../firebase";
-
+import { db } from "../firebase";
 
 export default function useGetAllUsers() {
     const [allUsers, setAllUsers] = useState([]);

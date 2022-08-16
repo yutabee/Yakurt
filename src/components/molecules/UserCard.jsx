@@ -2,7 +2,7 @@ import { Avatar, Button } from '@mui/material';
 import React, { memo, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
+import { useGetUserImage } from '../../hooks/useGetUserImage';
 import { AuthContext } from '../../providers/UserProvider';
 // import { useGetUserImage } from '../../hooks/firebase/useGetUserImage';
 

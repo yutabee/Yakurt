@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useGetAllPost } from '../../../hooks/firebase/useGetAllPosts';
-import { useGetUserImage } from '../../../hooks/firebase/useGetUserImage';
+import { useGetAllPost } from '../../../hooks/useGetAllPosts';
+import { useGetUserImage } from '../../../hooks/useGetUserImage';
 import { Post } from './Post';
 
 export const Posts = () => {

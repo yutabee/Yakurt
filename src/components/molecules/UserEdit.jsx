@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { db, storage } from '../../firebase';
 import { ref, uploadBytes } from "firebase/storage";
-import { useGetUserProfile } from '../../hooks/firebase/useGetUserProfile';
+import { useGetUserProfile } from '../../hooks/useGetUserProfile';
 import { uuidv4 } from '@firebase/util';
 import { AuthContext } from '../../providers/UserProvider';
 // import { uuidv4 } from '@firebase/util';
