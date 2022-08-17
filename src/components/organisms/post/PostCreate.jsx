@@ -7,14 +7,21 @@ import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../../providers/UserProvider';
 import { Header } from '../../layouts/Header';
+import { useGetUserProfile } from '../../../hooks/useGetUserProfile';
+import { useEffect } from 'react';
 
 export const PostCreate = () => {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [errMessage, setErrMessage] = useState(false);
-
     const { currentUser } = useContext(AuthContext);
+    const { userInfo, getUserProfile } = useGetUserProfile();
+    
+    useEffect(() => {
+        getUserProfile(); 
+     // eslint-disable-next-line
+    },[])
 
     const handleTitle = (e) => {
         setTitle(e.target.value);
@@ -33,7 +40,8 @@ export const PostCreate = () => {
                     id:uuidv4(),
                     title: title,
                     content: content,
-                    uid:currentUser.uid,
+                    uid: currentUser.uid,
+                    username:userInfo.name,
                     created_at: serverTimestamp(),
                 })
                 setContent('');

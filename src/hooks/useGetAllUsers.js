@@ -17,5 +17,20 @@ export default function useGetAllUsers() {
     
 } 
     
+
+// export default function useGetAllUsers() {
+//     const [allUsers, setAllUsers] = useState([]);
+    
+//     const getAllUsers = useCallback( async () => {
+//     const usersCollection = collection(db, "users");
+//             await getDocs(usersCollection)
+//                 .then((querySnapshot) => {
+//                     setAllUsers(querySnapshot.docs.map((doc) => doc.data()))
+//                 }).catch((error) => console.log(error));
+//     },[] ) 
+
+//     return { allUsers, getAllUsers }
+    
+// } 
     
 

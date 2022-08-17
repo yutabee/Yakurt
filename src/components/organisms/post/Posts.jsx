@@ -16,6 +16,8 @@ export const Posts = () => {
   // eslint-disable-next-line 
   }, []);
 
+  // console.log(posts)
+
   return (
       <SBox>
         {
@@ -28,6 +30,7 @@ export const Posts = () => {
             created_at={post.created_at}
             uid={post.uid}
             imageURL={imageURL}  
+            username={post.username}  
             />
             </Link>
           ))}

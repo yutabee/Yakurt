@@ -11,18 +11,17 @@ export const useGetUserImage = () => {
   // console.log(userInfo);
   
   useEffect(() => {
-
     getUserProfile();
     // eslint-disable-next-line
   }, []);
 
-    const getImageURL = useCallback(async () => {
-      const gsReference = ref(storage, userInfo.image);
-      await getDownloadURL(gsReference)
-        .then((url) => setImage(url))
-        .catch((error) => console.log(error));
+  const getImageURL = useCallback(async () => {
+    const gsReference = ref(storage, userInfo.image);
+    await getDownloadURL(gsReference)
+      .then((url) => setImage(url))
+      .catch((error) => console.log(error));
     // eslint-disable-next-line
-    },[userInfo])
+  }, []);
 
   return { imageURL, getImageURL }
 }

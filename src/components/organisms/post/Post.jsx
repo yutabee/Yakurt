@@ -3,16 +3,17 @@ import React, { memo } from 'react'
 import styled from 'styled-components';
 
 export const Post = memo((props) => {
-  const { title, content, imageURL } = props;
+  const { title, content, imageURL, username } = props;
+  // console.log(props);
 
   return (
       <SCard>
       <SImgBox>
         {imageURL ?
-          (<SImg src={imageURL} alt='profileImg'></SImg>) :
+          (<SImg src={imageURL} alt='profileImg'/>) :
           (<Avatar/>)
         }   
-            <p>@Yutabeee</p>
+          <p>@{username}</p>
           </SImgBox>
           <SContent>
           <STitle>{title}</STitle>
